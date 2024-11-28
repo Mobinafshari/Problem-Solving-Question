@@ -1,0 +1,23 @@
+.wrapper{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+.parent{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+ &__input{
+        border: 1px solid grey;
+        padding: 8px 12px;
+        border-radius: 8px;
+    }
+    &__button{
+        background-color: rgb(74, 74, 232);
+        border-radius: 8px;
+        color: white;
+        padding: 4px 0;
+    }
+}
