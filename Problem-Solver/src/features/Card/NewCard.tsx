@@ -1,20 +1,32 @@
-import {  useMainContext } from "@/context/Main";
+import {   useMainContext } from "@/context/Main";
 import "./styles/card.scss";
-import { useForm } from "react-hook-form";
+import {  useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import cardSchema, { NewCardFormType } from "./validations/newCard.validation";
+import axios from "axios";
 
 function NewCard() {
-  const { removeNew } = useMainContext();
+  const { removeNew, name, addNewCompleted } = useMainContext();
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    resolver : zodResolver(cardSchema)
+  } = useForm<NewCardFormType>({
+    resolver: zodResolver(cardSchema),
   });
-  const onSubmit = (values: NewCardFormType) => {
-    console.log(values)
+  const onSubmit = async (
+    {card , cvv2 , expireDate}: NewCardFormType
+  ) => {
+    try {
+      const {data }   = await axios.post("http://localhost:3000/userCards", { card , cvv2 , expireDate , name}, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      addNewCompleted(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <form className="card" onSubmit={handleSubmit(onSubmit)}>
