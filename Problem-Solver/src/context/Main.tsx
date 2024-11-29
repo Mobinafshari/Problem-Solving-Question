@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState, useContext } from "react";
+import { createContext, ReactNode, useState, useContext, useEffect } from "react";
 
 type ContextType = {
   name: string;
@@ -13,13 +13,17 @@ export type CardsType = {
   card: string;
   cvv2: string;
   expireDate: string;
+  name : string
 };
 
-const emptyCard = { card: "", cvv2: "", expireDate: "" };
+const emptyCard = { card: "", cvv2: "", expireDate: "", name : ""};
 const MainContext = createContext<ContextType | undefined>(undefined);
 
 export const MainContextProvider = ({ children }: { children: ReactNode }) => {
-  const [name, setName] = useState("");
+  const [name, setName] = useState(localStorage.getItem("name") ?? "");
+  useEffect(() => {
+    localStorage.setItem("name" , name)
+  } ,[name])
   const [cards, setCards] = useState<CardsType[] | undefined>([]);
   const addNew = () => {
     setCards((prev) => (prev ? [...prev, emptyCard] : [emptyCard]));

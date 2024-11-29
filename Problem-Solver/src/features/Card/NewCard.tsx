@@ -3,10 +3,11 @@ import "./styles/card.scss";
 import {  useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import cardSchema, { NewCardFormType } from "./validations/newCard.validation";
-import axios from "axios";
+import { useUpdate } from "@/hooks/useUpdate";
 
 function NewCard() {
-  const { removeNew, name, addNewCompleted } = useMainContext();
+  const { removeNew, name } = useMainContext();
+  const { postCard }= useUpdate();
   const {
     register,
     handleSubmit,
@@ -15,18 +16,9 @@ function NewCard() {
     resolver: zodResolver(cardSchema),
   });
   const onSubmit = async (
-    {card , cvv2 , expireDate}: NewCardFormType
+    values: NewCardFormType
   ) => {
-    try {
-      const {data }   = await axios.post("http://localhost:3000/userCards", { card , cvv2 , expireDate , name}, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      addNewCompleted(data);
-    } catch (error) {
-      console.log(error);
-    }
+    postCard({...values , name});
   };
   return (
     <form className="card" onSubmit={handleSubmit(onSubmit)}>
