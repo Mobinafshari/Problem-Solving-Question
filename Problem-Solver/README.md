@@ -1,50 +1,26 @@
-# React + TypeScript + Vite
+these are problems that i'm gonna ask before the solving problem:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1-How much time do we have?
+2-How much resource do we have and our js bundle size should be less than a specefic size?
+3-Can we use agile development process?
+4-What outcome do we need?
+5-What is the cost of doing nothing?
+6-Is the senior leadership team on board? 
+7-Who will own the implementation process? 
+8-How will you measure success?
+9-What was the impact?
+10-Do we use a 3rd library for data fetching?
+11-How should we handle the error?a toast or just a paragraph to show the error.
+12-How should we implement loading statement? skeleton or another loading.
+13-How should we add a cart?should we have a modal or a sheet that opens from left or we'gonna have a from in our main page?
+14-Do we have a input checking for adding card?how should we handle its errors.
+15-Do we need a date picker for card date or user should just enter it.
+16-How should we handle api calling security?do we need in the first place?
+17-How should we handle accessibility?and how much time we can spend for it.
+18-Do we need to use debounce in our api calling and minimize user 's request.
+19-How much time do we have for responsive UI?
+20-Should we implement a design pattern?
+21-What is the desired user flow?
+22-Do we need a library for Form and Form control?
+23-What testing needs to be done?
+24-How many people should collaborate on this feature?
