@@ -10,7 +10,7 @@ function WhoYouAre() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     updateName(name);
-    navigate("/payment")
+    navigate("/Home")
   };
 
   return (

@@ -1,0 +1,21 @@
+.card-sheet{
+    position: fixed;
+    transition: all 1s;
+    height: 500px;
+    width: 500px;
+    
+    background-color: rgb(185, 185, 246);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    bottom: 0;
+    &__header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        &-icon{
+            color: gray;
+            cursor: pointer;
+        }
+    }
+}

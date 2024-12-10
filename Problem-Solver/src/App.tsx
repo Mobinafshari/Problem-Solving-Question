@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router"
 import WhoYouAre from "./page/WhoYouAre"
-import Cards from "./page/Cards"
+import Home from "./page/Home"
 
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
         <Route path="/" element={<WhoYouAre />}/>
       </Routes>
       <Routes>
-        <Route path="/payment" element={<Cards />}/>
+        <Route path="/Home" element={<Home />}/>
       </Routes>
     </BrowserRouter>
   )
