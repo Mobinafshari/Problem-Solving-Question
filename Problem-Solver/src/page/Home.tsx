@@ -2,12 +2,12 @@ import { useMainContext } from "@/context/Main";
 import { useGet } from "@/hooks/useGet";
 import Loading from "@/components/Loading";
 import "@styles/home.scss";
-import Sheet from "@/features/Sheet/Sheet";
 import { useState } from "react";
+import CardSheet from "@/features/Card/CardSheet";
 
 function Home() {
   const [openSheet , setOpenSheet] = useState(false);
-    const { name, cards, addNew } = useMainContext();
+    const { name } = useMainContext();
   const { loading } = useGet(name);
   if (loading) return <Loading />;
   return (
@@ -23,7 +23,7 @@ function Home() {
           View payment cards
         </button>
       </div>
-      <Sheet open={openSheet} onClose={() => setOpenSheet(false)} headerText="Choose payment method" />
+      <CardSheet onClose={() => setOpenSheet(false)} openSheet={openSheet} />
     </section>
   );
 }

@@ -1,5 +1,5 @@
 import useClickOutside from "@/hooks/useClickOutside";
-import "./styles/cardSheet.scss";
+import "./styles/Sheet.scss";
 import { RxCross1 } from "react-icons/rx";
 import { ReactNode } from "react";
 type Props = {
@@ -7,32 +7,49 @@ type Props = {
   onClose: () => void;
   open : boolean
 };
-function Sheet({ children, onClose }: Props) {
+function Sheet({ children, onClose , open}: Props) {
   const ref = useClickOutside<HTMLDivElement>(onClose);
   return (
     <>
+
       <div
         ref={ref}
-        className="card-sheet"
+        className="sheet"
         style={{ bottom: open ? "0" : "-700px" }}>
         {children}
+      {open && <div className="sheet-backdrop" onClick={onClose}></div>}
+
       </div>
     </>
   );
 }
 
-type SheetHeaderProps = { onClose: () => void; headerText: string };
-const SheetHeader = ({ onClose, headerText }: SheetHeaderProps) => {
+type HeaderProps = { onClose: () => void; headerText: string };
+const Header = ({ onClose, headerText }: HeaderProps) => {
   return (
-    <div className="card-sheet__header">
+    <div className="sheet__header">
       <p>{headerText}</p>
       <RxCross1
-        className="card-sheet__header-icon"
+        className="sheet__header-icon"
         size="20"
         onClick={onClose}
       />
     </div>
   );
 };
+
+const Body = ( {children} : { children : ReactNode}) => {
+  return (
+    <div>{children}</div>
+  )
+}
+
+const Footer = ({ children }: { children: ReactNode }) => {
+  return <div className="sheet__footer">{children}</div>;
+};
+
+Sheet.Header = Header;
+Sheet.Body = Body;
+Sheet.Footer = Footer;
 
 export default Sheet;
