@@ -2,10 +2,12 @@ import { useMainContext } from "@/context/Main";
 import "@styles/home.scss";
 import { useState } from "react";
 import CardSheet from "@/features/Card/CardSheet";
+import NewCardSheet from "@/features/Card/NewCardSheet";
 
 function Home() {
-  const [openSheet , setOpenSheet] = useState(false);
-    const { name } = useMainContext();
+  const [openSheet, setOpenSheet] = useState(false);
+  const [openNewCard, setOpenNewSheet] = useState(false);
+  const { name } = useMainContext();
   return (
     <>
       <section className="home">
@@ -21,7 +23,18 @@ function Home() {
           </button>
         </div>
       </section>
-      {openSheet &&<CardSheet onClose={() => setOpenSheet(false)} openSheet={openSheet} />}
+      <CardSheet
+        onClose={() => setOpenSheet(false)}
+        openSheet={openSheet}
+        addNew={() => {
+          setOpenSheet(false)
+          setOpenNewSheet(true);
+        }}
+      />
+      <NewCardSheet
+        onClose={() => setOpenNewSheet(false)}
+        openSheet={openNewCard}
+      />
     </>
   );
 }

@@ -1,17 +1,67 @@
 @import "../../../styles/variable.scss";
-.card{
-    min-height: 70px;
-    max-height: 70px;
-    background-color: rgb(236, 231, 231);
-    border-radius: 8px;
-    display: grid;
-    grid-template-columns: 80px 80px 1fr;
-    gap: 16px;
-    padding: 10px;
-    &__image{
-        height: 100%;
-        object-fit: contain;
-        border-radius: 8px;
-        background-color: $secondary-color;
+.card {
+  transition: all 0.5s;
+  min-height: 75px;
+  max-height: 75px;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 80px 1fr 40px;
+  gap: 16px;
+  padding: 10px;
+  &-primary {
+    background-color: $tertiary-color;
+    &__wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      padding-inline-end: 20px;
+      & span{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $primary-color;
+        padding:8px;
+        border-radius: 100%;
+        animation: fade-in .5s ease-in-out;
+      }
     }
+  }
+  &__image {
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    background-color: $secondary-color;
+  }
+  &-infos {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 15px;
+    &__name {
+      text-transform: uppercase;
+    }
+    &__primary{
+        font-size: 11px;
+        color: $primary-color;
+        font-weight: 600;
+        background-color: $secondary-color;
+        padding: 2px 10px;
+        border-radius: 16px;
+        letter-spacing: .6px;
+        animation: fade-in .5s ease-in-out;
+
+    }
+    &__number {
+      font-size: 12px;
+      color: gray;
+    }
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

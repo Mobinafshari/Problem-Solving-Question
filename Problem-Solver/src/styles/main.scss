@@ -1,4 +1,5 @@
 /* Document */
+@import "./variable.scss";
 html {
   box-sizing: border-box;
   line-height: 1.15; /* Improves text rendering */
@@ -25,6 +26,23 @@ a {
   background-color: transparent;
   text-decoration: none;
   color: inherit; /* Inherit text color */
+}
+/* Apply styles globally */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, $primary-color, $secondary-color); /* Gradient color */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $secondary-color; 
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
 }
 
 a:focus {

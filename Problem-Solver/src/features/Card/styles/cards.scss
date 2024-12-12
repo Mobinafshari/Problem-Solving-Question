@@ -3,4 +3,6 @@
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
+    max-height: 165px;
+    overflow-y: scroll;
 }
