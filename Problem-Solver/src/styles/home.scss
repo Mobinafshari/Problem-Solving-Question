@@ -1,25 +1,25 @@
 @import "./variable.scss";
-.home{
-    min-height: 100vh;
+.home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  &__button {
+    border-radius: 8px;
+    color: black;
+    padding: 4px 8px;
+    border: 2px solid $primary-color;
+  }
+  &-wrapper {
     display: flex;
+    flex-direction: column;
+    gap: 10px;
     align-items: center;
     justify-content: center;
-    &__button{
-        border-radius: 8px;
-        color: black;
-        padding: 4px 8px;
-        border: 2px  solid $primary-color;
-    }
-    &-wrapper{
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        z-index: 1;
-    }
+  }
 }
-.name{
-    color: $secondary-color;
+.name {
+  color: $secondary-color;
 }

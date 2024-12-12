@@ -1,5 +1,8 @@
+import { useMainContext } from "@/context/Main";
 import Sheet from "../Sheet/Sheet";
+import Cards from "./Cards";
 import "./styles/cardSheet.scss"
+import { useGet } from "@/hooks/useGet";
 
 type Props = {
     openSheet : boolean;
@@ -7,11 +10,13 @@ type Props = {
 
 };
 function CardSheet({openSheet , onClose} : Props) {
+  const { name } = useMainContext();
+  const { loading } = useGet(name);
   return (
     <Sheet open={openSheet} onClose={onClose}>
       <Sheet.Header headerText="Choose payment method" onClose={onClose} />
       <Sheet.Body>
-        <p style={{position : "relative" , zIndex :200}}>Cards here</p>
+        {loading ? <p>loading....</p> : <Cards />}
       </Sheet.Body>
       <Sheet.Footer>
         <div>

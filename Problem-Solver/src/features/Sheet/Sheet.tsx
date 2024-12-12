@@ -17,8 +17,6 @@ function Sheet({ children, onClose , open}: Props) {
         className="sheet"
         style={{ bottom: open ? "0" : "-700px" }}>
         {children}
-      {open && <div className="sheet-backdrop" onClick={onClose}></div>}
-
       </div>
     </>
   );
@@ -28,7 +26,7 @@ type HeaderProps = { onClose: () => void; headerText: string };
 const Header = ({ onClose, headerText }: HeaderProps) => {
   return (
     <div className="sheet__header">
-      <p>{headerText}</p>
+      <h2>{headerText}</h2>
       <RxCross1
         className="sheet__header-icon"
         size="20"

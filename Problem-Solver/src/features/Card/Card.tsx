@@ -1,20 +1,21 @@
-import NewCard from "./NewCard";
-import "./styles/card.scss"
-
+import "./styles/card.scss";
 type Props = {
+  name: string;
   card: string;
-  cvv2: string;
-  expireDate: string;
 };
 
-function Card({ card, cvv2, expireDate }: Props) {
-
-  if(card === "" && cvv2 === "") return <NewCard />
-  return <section className="card">
-    <h2 style={{flex : 1}}>{card}</h2>
-    <p style={{flex : 1}}>cvv2: {cvv2}</p>
-    <p style={{flex : 1}}>Expire Date: {expireDate}</p>
-  </section>;
+function Card({ name, card }: Props) {
+  return (
+    <div className="card">
+      <figure >
+        <img src="/visa-card.png" alt="card picture" className="card__image"/>
+      </figure>
+      <div className="card-infos">
+        <p>{name}</p>
+        <p>{card}</p>
+      </div>
+    </div>
+  );
 }
 
 export default Card;
