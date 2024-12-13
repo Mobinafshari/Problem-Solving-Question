@@ -8,10 +8,9 @@ export type ContextType = {
   setPrimary: (card: CardsType) => void;
 };
 export type CardsType = {
-  card: string;
-  cvv2: string;
+  cardNumber: string;
   expireDate: string;
-  name: string;
+  fullName: string;
 };
 export type UserCardType = {
   primaryCard: CardsType;

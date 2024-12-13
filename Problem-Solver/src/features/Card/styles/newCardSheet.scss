@@ -1,0 +1,33 @@
+@import "../../../styles/variable.scss";
+
+.newCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid rgba(128, 128, 128, 0.251);
+  border-radius: 8px;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+  &__input {
+    display: flex;
+    align-items: center;
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(128, 128, 128, 0.251);
+      height: 40px;
+    }
+    &:last-child{
+        height: 35px;
+    }
+  }
+  &__button {
+    background-color: $primary-color;
+    width: 100%;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

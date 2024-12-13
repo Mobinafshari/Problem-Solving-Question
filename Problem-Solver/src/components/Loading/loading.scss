@@ -1,0 +1,19 @@
+@import "../../styles/variable.scss";
+.spinner {
+  border: 2px solid $tertiary-color;
+  border-top: 2px solid $primary-color;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -9,7 +9,7 @@ type Props = {
 
 function Card({ card }: Props) {
   const { primary, setPrimary } = useMainContext();
-  const isPrimary = primary?.card === card.card;
+  const isPrimary = primary?.cardNumber === card.cardNumber;
   return (
     <div
       className={`card ${isPrimary ? "card-primary" : ""}`}
@@ -19,10 +19,10 @@ function Card({ card }: Props) {
       </figure>
       <div>
         <p className="card-infos">
-          <span className="card-infos__name">{card.name}</span>
+          <span className="card-infos__name">{card.fullName}</span>
           {isPrimary && <span className="card-infos__primary">Primary</span>}
         </p>
-        <p className="card-infos__number">{convertCardNumber(card.card)}</p>
+        <p className="card-infos__number">{convertCardNumber(card.cardNumber)}</p>
       </div>
       {isPrimary && (
         <div className="card-primary__wrapper">

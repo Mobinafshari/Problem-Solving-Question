@@ -9,7 +9,7 @@ export const useGet = (name: string) => {
     const getCards = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:3000/userCards?name=${name}`
+          `http://localhost:3000/userCards?fullName=${name}`
         );
         updateCards(data);
       } catch (error) {
