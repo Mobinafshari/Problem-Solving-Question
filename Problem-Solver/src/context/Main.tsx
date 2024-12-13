@@ -18,7 +18,7 @@ export const MainContextProvider = ({ children }: { children: ReactNode }) => {
     return {
       cards,
       primaryCard: primaryCard
-        ? cards.find((card) => card.card === primaryCard) ||
+        ? cards.find((card) => card.cardNumber === primaryCard) ||
           cards[cards.length - 1]
         : cards[cards.length - 1],
     };
@@ -29,7 +29,7 @@ export const MainContextProvider = ({ children }: { children: ReactNode }) => {
   }, [name]);
   const [userCards, setCards] = useState<UserCardType | undefined>(initializeUserCards());
   useEffect(() => {
-    localStorage.setItem("primary" , userCards?.primaryCard?.card ?? "")
+    localStorage.setItem("primary" , userCards?.primaryCard?.cardNumber ?? "")
   } , [userCards])
   const addNewCompleted = (newCard: CardsType) => {
     setCards((prev) =>
