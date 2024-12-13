@@ -6,8 +6,11 @@ import toast from "react-hot-toast";
 
 export const useUpdate = () => {
   const { addNewCompleted } = useMainContext();
-  const [ loading , setLoading] = useState(true);
+  const [ loading , setLoading] = useState(false);
   const postCard = async (newCard: CardsType) => {
+    setLoading(true);
+    //using promise to see loading indicator for at least one second
+    await new Promise((resolve) => setTimeout(resolve , 1000))
     try {
       const { data } = await axios.post(
         "http://localhost:3000/userCards",
