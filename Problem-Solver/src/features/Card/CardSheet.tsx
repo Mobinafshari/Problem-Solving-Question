@@ -18,13 +18,13 @@ function CardSheet({ openSheet, onClose , addNew }: Props) {
     <Sheet open={openSheet} onClose={onClose}>
       <Sheet.Header headerText="Choose payment method" onClose={onClose} />
       <Sheet.Body>
-        {loading ? <p>loading....</p> : <Cards />}
-        <div className="add-new" onClick={addNew}>
-          <FaPlus color="rgb(74, 74, 232)" />
+        {loading ? <p>loading....</p> : <Cards/>}
+        <button className="add-new" onClick={addNew}>
+          <FaPlus color="rgb(74, 74, 232)" aria-hidden="true" />
           <p>Add new card</p>
-        </div>
-        <div className="security">
-          <RiShieldCheckFill color="#38b000" size={40} />
+        </button>
+        <div className="security" >
+          <RiShieldCheckFill color="#38b000" size={40} aria-hidden="true" />
           <p>
             We adhere entirely to the data security standards of the payment
             card industry.

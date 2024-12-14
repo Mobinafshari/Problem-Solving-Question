@@ -14,19 +14,21 @@ function WhoYouAre() {
   };
 
   return (
-    <form className="wrapper" onSubmit={handleSubmit}>
-      <div className="parent">
-        <input
-          type="text"
-          placeholder="enter your name here!"
-          className="parent__input"
-          onChange={(e) => setName(e.target.value)}
-        />
-        <button className="parent__button" type="submit">
-          Submit
-        </button>
-      </div>
-    </form>
+    <section>
+      <form className="wrapper" onSubmit={handleSubmit}>
+        <div className="parent">
+          <input
+            type="text"
+            placeholder="enter your name here!"
+            className="parent__input"
+            onChange={(e) => setName(e.target.value)}
+          />
+          <button className="parent__button" type="submit">
+            Submit
+          </button>
+        </div>
+      </form>
+    </section>
   );
 }
 

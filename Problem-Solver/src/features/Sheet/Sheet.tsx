@@ -11,22 +11,22 @@ type Props = {
 function Sheet({ children, onClose, open, style }: Props) {
   const ref = useClickOutside<HTMLDivElement>(onClose);
   return (
-    <div
+    <section
       ref={ref}
       className="sheet"
       style={{ ...style,bottom: open ? "0" : "-700px" }}>
       {children}
-    </div>
+    </section>
   );
 }
 
 type HeaderProps = { onClose: () => void; headerText: string };
 const Header = ({ onClose, headerText }: HeaderProps) => {
   return (
-    <div className="sheet__header">
+    <header className="sheet__header">
       <h2>{headerText}</h2>
       <RxCross1 className="sheet__header-icon" size="20" onClick={onClose} />
-    </div>
+    </header>
   );
 };
 

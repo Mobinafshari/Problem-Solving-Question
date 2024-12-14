@@ -13,21 +13,34 @@ function Card({ card }: Props) {
   return (
     <div
       className={`card ${isPrimary ? "card-primary" : ""}`}
-      onClick={() => setPrimary(card)}>
+      onClick={() => setPrimary(card)}
+      aria-label={`Payment card for ${card.fullName}, ${
+        isPrimary ? "primary card" : "not primary card"
+      }`}
+      role="button"
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") setPrimary(card);
+      }}>
       <figure>
-        <img src="/visa-card.png" alt="card picture" className="card__image" />
+        <img
+          src="/visa-card.png"
+          alt="payment card picture."
+          className="card__image"
+        />
       </figure>
       <div>
         <p className="card-infos">
           <span className="card-infos__name">{card.fullName}</span>
           {isPrimary && <span className="card-infos__primary">Primary</span>}
         </p>
-        <p className="card-infos__number">{convertCardNumber(card.cardNumber)}</p>
+        <p className="card-infos__number">
+          {convertCardNumber(card.cardNumber)}
+        </p>
       </div>
       {isPrimary && (
         <div className="card-primary__wrapper">
           <span>
-            <FaCheck color="white" size={12} />
+            <FaCheck color="white" size={12} aria-hidden="true"/>
           </span>
         </div>
       )}
