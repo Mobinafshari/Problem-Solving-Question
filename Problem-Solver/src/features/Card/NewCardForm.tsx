@@ -1,6 +1,6 @@
 import { SubmitHandler, UseFormReturn } from "react-hook-form";
 import { NewCardFormType } from "./validations/newCard.validation";
-import { forwardRef, useImperativeHandle, useState } from "react";
+import { forwardRef, useEffect, useImperativeHandle, useState } from "react";
 import { spaceCardNumber } from "@/utils/spaceCardNumber";
 
 type Props = UseFormReturn<NewCardFormType> & {
@@ -15,15 +15,21 @@ const NewCardForm = forwardRef<NewCardFormRef, Props>(function NewCardForm(
   ref
 ) {
   const [inputValue, setInputValue] = useState("");
-  useImperativeHandle(
-    ref,
-    () => ({
-      clearInput() {
-        setInputValue("");
-      },
-    }),
-    []
-  );
+  // useImperativeHandle(
+  //   ref,
+  //   () => ({
+  //     clearInput() {
+  //       setInputValue("");
+  //     },
+  //   }),
+  //   []
+  // );
+   useEffect(() => {
+     return () => {
+       console.log("NewCardForm component is unmounting"); // Log or perform cleanup
+       setInputValue(""); // Optionally clear input on unmount
+     };
+   }, []);
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="newCard">

@@ -39,7 +39,7 @@ function NewCardSheet({ openSheet, onClose }: Props) {
       style={{ width: "400px" }}>
       <Sheet.Header onClose={onClose} headerText="add new card" />
       <Sheet.Body>
-        <NewCardForm {...form} ref={formRef} onSubmit={onSubmit}/>
+        {openSheet && <NewCardForm {...form} ref={formRef} onSubmit={onSubmit}/>}
       </Sheet.Body>
       <Sheet.Footer>
         <div>
