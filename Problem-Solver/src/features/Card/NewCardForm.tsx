@@ -1,35 +1,29 @@
 import { SubmitHandler, UseFormReturn } from "react-hook-form";
 import { NewCardFormType } from "./validations/newCard.validation";
-import { forwardRef, useEffect, useImperativeHandle, useState } from "react";
+import { useEffect, useState } from "react";
 import { spaceCardNumber } from "@/utils/spaceCardNumber";
 
 type Props = UseFormReturn<NewCardFormType> & {
   onSubmit: SubmitHandler<NewCardFormType>;
-};
-export type NewCardFormRef = {
-  clearInput: () => void;
+  openSheet: boolean;
 };
 
-const NewCardForm = forwardRef<NewCardFormRef, Props>(function NewCardForm(
-  { formState: { errors }, handleSubmit, onSubmit, register, setValue }: Props,
-  ref
-) {
+const NewCardForm = ({
+  formState: { errors },
+  handleSubmit,
+  onSubmit,
+  register,
+  setValue,
+  openSheet,
+}: Props) => {
   const [inputValue, setInputValue] = useState("");
-  // useImperativeHandle(
-  //   ref,
-  //   () => ({
-  //     clearInput() {
-  //       setInputValue("");
-  //     },
-  //   }),
-  //   []
-  // );
-   useEffect(() => {
-     return () => {
-       console.log("NewCardForm component is unmounting"); // Log or perform cleanup
-       setInputValue(""); // Optionally clear input on unmount
-     };
-   }, []);
+
+  useEffect(() => {
+    if (!openSheet) {
+      setInputValue(""); // Clear input when the sheet is closed
+    }
+  }, [openSheet]);
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="newCard">
@@ -78,6 +72,6 @@ const NewCardForm = forwardRef<NewCardFormRef, Props>(function NewCardForm(
       </div>
     </form>
   );
-});
+};
 
 export default NewCardForm;

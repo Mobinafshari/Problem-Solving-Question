@@ -3,18 +3,16 @@ import Sheet from "../Sheet/Sheet";
 import "./styles/newCardSheet.scss";
 import cardSchema, { NewCardFormType } from "./validations/newCard.validation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRef } from "react";
 import { useUpdate } from "@/hooks/useUpdate";
 import toast from "react-hot-toast";
 import Loading from "@/components/Loading/Loading";
-import NewCardForm, { NewCardFormRef } from "./NewCardForm";
+import NewCardForm from "./NewCardForm";
 type Props = {
   openSheet: boolean;
   onClose: () => void;
 };
 function NewCardSheet({ openSheet, onClose }: Props) {
   const { postCard, loading } = useUpdate();
-  const formRef = useRef<NewCardFormRef>(null);
   const form = useForm<NewCardFormType>({
     resolver: zodResolver(cardSchema),
   });
@@ -32,14 +30,14 @@ function NewCardSheet({ openSheet, onClose }: Props) {
     <Sheet
       onClose={() => {
         form.reset();
-        formRef.current?.clearInput();
+        // formRef.current?.clearInput();
         onClose();
       }}
       open={openSheet}
       style={{ width: "400px" }}>
       <Sheet.Header onClose={onClose} headerText="add new card" />
       <Sheet.Body>
-        {openSheet && <NewCardForm {...form} ref={formRef} onSubmit={onSubmit}/>}
+        <NewCardForm {...form} onSubmit={onSubmit} openSheet={openSheet}/>
       </Sheet.Body>
       <Sheet.Footer>
         <div>
