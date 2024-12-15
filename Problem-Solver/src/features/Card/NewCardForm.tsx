@@ -20,7 +20,7 @@ const NewCardForm = ({
 
   useEffect(() => {
     if (!openSheet) {
-      setInputValue(""); // Clear input when the sheet is closed
+      setInputValue(""); 
     }
   }, [openSheet]);
 
