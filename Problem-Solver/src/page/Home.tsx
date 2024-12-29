@@ -27,14 +27,14 @@ function Home() {
         onClose={() => setOpenSheet(false)}
         openSheet={openSheet}
         addNew={() => {
-          setOpenSheet(false)
+          setOpenSheet(false);
           setOpenNewSheet(true);
         }}
       />
-      <NewCardSheet
-        onClose={() => setOpenNewSheet(false)}
-        openSheet={openNewCard}
-      />
+        <NewCardSheet
+          onClose={() => setOpenNewSheet(false)}
+          openSheet={openNewCard}
+        />
     </>
   );
 }

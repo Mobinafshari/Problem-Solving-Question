@@ -15,7 +15,7 @@ function Sheet({ children, onClose, open, style }: Props) {
       ref={ref}
       className="sheet"
       style={{ ...style,bottom: open ? "0" : "-700px" }}>
-      {children}
+      {open && children}
     </section>
   );
 }

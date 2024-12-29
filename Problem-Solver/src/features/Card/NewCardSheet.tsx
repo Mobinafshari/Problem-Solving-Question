@@ -30,14 +30,13 @@ function NewCardSheet({ openSheet, onClose }: Props) {
     <Sheet
       onClose={() => {
         form.reset();
-        // formRef.current?.clearInput();
         onClose();
       }}
       open={openSheet}
-      style={{ width: "400px" }}>
+      style={{ width: "400px", height: "322.6px" }}>
       <Sheet.Header onClose={onClose} headerText="add new card" />
       <Sheet.Body>
-        <NewCardForm {...form} onSubmit={onSubmit}/>
+        <NewCardForm {...form} onSubmit={onSubmit} />
       </Sheet.Body>
       <Sheet.Footer>
         <div>
