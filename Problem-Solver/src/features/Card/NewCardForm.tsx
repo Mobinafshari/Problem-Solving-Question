@@ -5,7 +5,6 @@ import { spaceCardNumber } from "@/utils/spaceCardNumber";
 
 type Props = UseFormReturn<NewCardFormType> & {
   onSubmit: SubmitHandler<NewCardFormType>;
-  openSheet: boolean;
 };
 
 const NewCardForm = ({
@@ -14,15 +13,14 @@ const NewCardForm = ({
   onSubmit,
   register,
   setValue,
-  openSheet,
 }: Props) => {
   const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
-    if (!openSheet) {
-      setInputValue(""); 
-    }
-  }, [openSheet]);
+    return () => {
+      setInputValue("");
+    };
+  }, []);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
