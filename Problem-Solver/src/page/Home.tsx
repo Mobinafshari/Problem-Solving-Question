@@ -13,7 +13,7 @@ function Home() {
       <section className="home">
         <div className="home-wrapper">
           <h1>
-            Hello <span className="name">{name}</span>, Welcome to your Profile
+            Hey <span className="name">{name}</span>, Welcome to your Profile
             page
           </h1>
           <button
